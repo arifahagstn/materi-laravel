@@ -31,7 +31,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                <h3 class="card-title">DataTable Genre</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -40,34 +40,44 @@
                   <tr>
                     <th>No</th>
                     <th>Nama</th>
-                    <th>Umur</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach($casts as $key => $value)
+                    @foreach($genres as $key => $value)
                     <tr>
                         <td>{{ $key +1 }} </td>
                         <td>{{ $value->nama }} </td>
-                        <td>{{ $value->umur}} </td>
-                        <td>
-                            <a href="{{ route('cast.show', $value->id)}}" class="btn btn-small btn-info">
-                                Detail
-                            </a>
-                            <a href="{{ route('cast.edit', $value->id)}}" class="btn btn-small btn-warning">
-                                Edit
-                            </a>
-                            <form action="{{ route('cast.destroy', $value->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                        <td class="d-flex" style="gap:10px">
+                            <a href="{{ route('genre.show', $value->id) }}" class="btn btn-small btn-info">Detail</a>
+                            <a href="{{ route('genre.edit', $value->id) }}" class="btn btn-small btn-warning">Edit</a>
+                            <form action="{{ route('genre.destroy', $value->id) }}" method="POST">
+                          @csrf
+                          @method('DELETE')
+                          <a href="{{ route('genre.index') }}" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Hapus</a>
                               </form>
                         </td>
                     </tr>
+                    <div class="modal" tabindex="-1" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Peringatan</h5>
+                            </div>
+                            <div class="modal-body">
+                              <p>Apakah Anda Yakin Akan Menghapus Data Genre</p>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                              <a href="{{ route('genre.index') }}" class="btn btn-primary">Yes</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     @endforeach
                   </tbody>
-                  <a href="{{ route('cast.create') }}" class="btn btn-sm btn-primary">
-                    <i class="fas fa-plus"></i> Tambah Film
+                  <a href="{{ route('genre.create') }}" class="btn btn-sm btn-primary">
+                    <i class="fas fa-plus"></i> Tambah Genre
                   </a>
                 </table>
               </div>
@@ -99,10 +109,6 @@
 <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 <script>
   $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,
