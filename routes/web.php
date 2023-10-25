@@ -54,6 +54,7 @@ Route::get('/index', function() {
 Route::resource('/cast', CastController::class)->middleware('auth');
 Route::resource('/genre', GenreController::class)->middleware('auth');
 Route::resource('/film', FilmController::class)->middleware('auth');
+Route::resource('/peran', PeranController::class)->middleware('auth');
 
 Route::get('/film/{id}/peran/create', [PeranController::class,'create'])->name('peran.create');
 Route::post('film/{id}/peran', [PeranController::class, 'store'])->name('peran.store');

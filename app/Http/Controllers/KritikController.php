@@ -40,14 +40,14 @@ class KritikController extends Controller
             'point'     => 'required',
         ]);
 
-        $peran::create([
+        Kritik::create([
             'user_id'   => $request['user_id'],
             'film_id'   => $request['film_id'],
-            'content'   => $request['komentar'],
-            'ponit'     => $request['rating']
+            'content'   => $request['content'],
+            'point'     => $request['point']
         ]);
 
-        return redirect()->route('film.show', $id);
+        return redirect()->route('film.show', $id);  
     }
 
     /**

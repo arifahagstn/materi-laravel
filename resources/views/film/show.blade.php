@@ -98,18 +98,26 @@
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="{{ asset('adminlte/dist/img/user1-128x128.jpg')}}" alt="user image">
                         <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
+                          <a href="#">@forelse ($film->kritik as $kritik)
+                            @forelse ($kritik->user as $user)
+                              {{ $user->name}}
+                            @empty
+                              
+                            @endforelse
+                          @empty
+                            
+                          @endforelse</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                         </span>
                         <span class="description">Shared publicly - 7:30 PM today</span>
                       </div>
                       <!-- /.user-block -->
                       <p>
-                        Lorem ipsum represents a long-held tradition for designers,
-                        typographers and the like. Some people hate it and argue for
-                        its demise, but others ignore the hate as they create awesome
-                        tools to help create filler text for everyone from bacon lovers
-                        to Charlie Sheen fans.
+                        @forelse ($film->kritik as $kritik)
+                          {{ $kritik->content }}
+                        @empty
+                          Belum Ada Kritik Yang Tersedia
+                        @endforelse
                       </p>
 
                       <p>

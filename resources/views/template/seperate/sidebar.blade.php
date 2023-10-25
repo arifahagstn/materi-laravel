@@ -91,9 +91,18 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ asset('peran') }}" class="nav-link
+            @if (Request::segment(1) == 'peran') active @endif">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                Peran
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <form action="{{ route('auth.logout')}}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-secondary btn-md nav-link text-white">Logout</button>
+            <button type="submit" class="btn btn-danger btn-md nav-link text-white">Logout</button>
             </form>
           </li>
         </ul>

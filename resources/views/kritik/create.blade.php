@@ -37,23 +37,25 @@
                   <div class="form-group">
                     <label for="user">User</label>
                     <input type="text" name="user" id="user" class="form-control" value="{{ auth()->user()->name}}" disabled>
-                </div>
+                    <input type="text" name="user_id" id="user" class="form-control" value="{{ auth()->user()->id}}" hidden>
+                  </div>
                     <input type="hidden" value="{{$users[0]->id}}" name="user_id">
                     <div class="form-group">
                         <label for="judul">Judul Film</label>
                         <input type="text" name="judul" id="judul" class="form-control" value="{{$datafilm[0]->judul}}" disabled>
+                        <input type="text" name="film_id" id="judul" class="form-control" value="{{$datafilm[0]->id}}" hidden>
                     </div>
                     <input type="hidden" value="{{$datafilm[0]->id}}" name="film_id">
                     <div class="form-group">
                         <label for="content">Komentar</label>
-                        <input type="text" name="komentar" id="content" class="form-control @error('content') is-invalid @enderror" placeholder="Beri komentar">
+                        <input type="text" name="content" id="content" class="form-control @error('content') is-invalid @enderror" placeholder="Beri komentar" required>
                         @error('content')
                         <div class="alert alert-danger">{{$message}}</div>
                         @enderror 
                     </div>
                     <div class="form-group">
                         <label for="point">Rating</label>
-                        <input type="number" name="rating" id="point" class="form-control @error('point') is-invalid @enderror" placeholder="Beri rating">
+                        <input type="number" name="point" id="point" class="form-control @error('point') is-invalid @enderror" placeholder="Beri rating" required>
                         @error('point')
                         <div class="alert alert-danger">{{$message}}</div>
                         @enderror 

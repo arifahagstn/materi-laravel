@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Http\Request;
 
 class CloudinaryStorage extends Controller
 {
-    //
     private const folder_path = 'tutorial';
 
     public static function path($path){
@@ -18,8 +18,8 @@ class CloudinaryStorage extends Controller
         $public_id = date('Y-m-d_His').'_'.$newFilename;
         $result = Cloudinary::upload($image, [
             "public_id" => self::path($public_id),
-            "folder"    => self::folder_path
-        ])->getSecurePath();
+            "folder" => self::folder_path
+        ]);
 
         return $result;
     }
@@ -32,5 +32,5 @@ class CloudinaryStorage extends Controller
     public static function delete($path){
         $public_id = self::folder_path.'/'.self::path($path);
         return Cloudinary::destroy($public_id);
-    }
+}
 }
