@@ -47,6 +47,7 @@
                     <label for="bio">Bio</label>
                     <textarea name="bio" id="bio" cols="30" rows="10" class="form-control"  disabled>{{$cast[0]->bio}}</textarea>
                   </div>
+                  <div><a href="{{ route('cast.index') }}" class="btn btn-primary">Back</a></div>
                 </div>
                 <!-- /.card-body -->
             </div>

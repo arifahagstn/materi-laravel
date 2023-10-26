@@ -15,6 +15,6 @@ class Genre extends Model
 
     public function film()
     {
-        return $this->belongsTo('App\Models\Film');
+        return $this->belongsTo(Film::class, 'film_id', 'id');
     }
 }

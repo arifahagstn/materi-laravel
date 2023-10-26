@@ -62,6 +62,7 @@
                 <!-- /.card-body -->
                 <div class="card-footer">
                     <button type="submit" class="btn btn-warning">Update</button>
+                    <a href="{{ route('cast.index') }}" class="btn btn-primary">Back</a>
                   </div>
               </form>
             </div>

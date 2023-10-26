@@ -31,20 +31,18 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form action="{{ route('kritik.store', $datafilm[0]->id, $users[0]->id) }}" method="POST">
+              <form action="{{ route('kritik.store', $datafilm[0]->id ) }}" method="POST">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
                     <label for="user">User</label>
                     <input type="text" name="user" id="user" class="form-control" value="{{ auth()->user()->name}}" disabled>
-                    <input type="text" name="user_id" id="user" class="form-control" value="{{ auth()->user()->id}}" hidden>
                   </div>
-                    <input type="hidden" value="{{$users[0]->id}}" name="user_id">
+                    <input type="hidden" value="{{ auth()->user()->id }}" name="user_id">
                     <div class="form-group">
                         <label for="judul">Judul Film</label>
                         <input type="text" name="judul" id="judul" class="form-control" value="{{$datafilm[0]->judul}}" disabled>
-                        <input type="text" name="film_id" id="judul" class="form-control" value="{{$datafilm[0]->id}}" hidden>
-                    </div>
+                    </div> 
                     <input type="hidden" value="{{$datafilm[0]->id}}" name="film_id">
                     <div class="form-group">
                         <label for="content">Komentar</label>

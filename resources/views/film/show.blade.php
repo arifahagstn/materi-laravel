@@ -94,30 +94,25 @@
                 <div class="tab-content">
                   <div class="active tab-pane" id="activity">
                     <!-- Post -->
+                    @foreach ($film->kritik as $kritik)
                     <div class="post">
                       <div class="user-block">
                         <img class="img-circle img-bordered-sm" src="{{ asset('adminlte/dist/img/user1-128x128.jpg')}}" alt="user image">
                         <span class="username">
-                          <a href="#">@forelse ($film->kritik as $kritik)
-                            @forelse ($kritik->user as $user)
-                              {{ $user->name}}
-                            @empty
-                              
-                            @endforelse
-                          @empty
-                            
-                          @endforelse</a>
+                          <a href="#">@foreach ($kritik->user as $user)
+                            {{ $user->name}}
+                          @endforeach</a>
                           <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
                         </span>
                         <span class="description">Shared publicly - 7:30 PM today</span>
                       </div>
                       <!-- /.user-block -->
                       <p>
-                        @forelse ($film->kritik as $kritik)
+                        {{-- @forelse ($film->kritik as $kritik) --}}
                           {{ $kritik->content }}
-                        @empty
+                        {{-- @empty
                           Belum Ada Kritik Yang Tersedia
-                        @endforelse
+                        @endforelse --}}
                       </p>
 
                       <p>
@@ -132,6 +127,7 @@
 
                       <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
                     </div>
+                    @endforeach
                     <!-- /.post -->
 
                     <!-- Post -->

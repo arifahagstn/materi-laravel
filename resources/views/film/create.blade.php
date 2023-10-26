@@ -83,6 +83,7 @@
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ route('cast.index') }}" class="btn btn-primary">Back</a>
               </div>
             </form>
           </div>

@@ -52,9 +52,9 @@ class GenreController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Genre $genre)
+    public function edit(Genre $genres)
     {
-        return view('genre.edit', compact('genre'));
+        return view('genre.edit', compact('genres'));
     }
 
     /**

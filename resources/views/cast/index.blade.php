@@ -50,7 +50,7 @@
                         <td>{{ $key +1 }} </td>
                         <td>{{ $value->nama }} </td>
                         <td>{{ $value->umur}} </td>
-                        <td>
+                        <td class="d-flex" style="gap:10px">
                             <a href="{{ route('cast.show', $value->id)}}" class="btn btn-small btn-info">
                                 Detail
                             </a>
